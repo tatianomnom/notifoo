@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'org.akhikhl.gretty'
+apply plugin: 'kotlin'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -12,6 +13,7 @@ buildscript {
 
     dependencies {
         classpath 'org.akhikhl.gretty:gretty:+'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:0.12.200"
     }
 
 }
@@ -21,6 +23,7 @@ repositories {
 }
 
 dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:0.12.200"
     providedCompile "javax.websocket:javax.websocket-api:1.1"
 }
 
