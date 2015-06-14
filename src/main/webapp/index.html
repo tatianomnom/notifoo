@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var WS = function () {
+
+            var socket;
+
+            return  {
+                connect: function () {
+                    socket = new WebSocket("ws://localhost:8080/notifoo/demo");
+                    socket.onmessage = function(event) {
+                        var entry = document.createElement("p");
+                        entry.innerHTML = event.data;
+                        document.getElementById('log').appendChild(entry);
+                    }
+                },
+                disconnect: function () {
+                    socket.close()
+                },
+                send: function (msg) {
+                    socket.send(msg)
+                }
+            };
+        }();
+
+    </script>
+</head>
+<body>
+
+<button onclick="WS.connect();">Connect</button>
+<button onclick="WS.disconnect();">Disconnect</button>
+<label>
+    Text:
+    <input id="msg" type="text">
+</label>
+<button onclick="WS.send(document.getElementById('msg').value)">Send</button>
+
+<div id="log"></div>
+
+</body>
+</html>
