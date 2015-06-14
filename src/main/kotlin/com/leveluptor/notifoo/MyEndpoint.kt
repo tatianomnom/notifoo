@@ -11,18 +11,18 @@ public class MyEndpoint {
 
     @OnOpen
     public fun onOpen(session: Session) {
-        print(session.getId() + " connected")
+        println(session.getId() + " connected")
     }
 
     @OnMessage
     public fun onMessage(message: String, session: Session) {
-        print(session.getId() + " sent " + message)
+        println(session.getId() + " sent " + message)
         session.getOpenSessions().forEach { s -> s.getBasicRemote().sendText("[User ${session.getId()}]: $message") }
     }
 
     @OnClose
     public fun onClose(session: Session) {
-        print(session.getId() + " disconnected")
+        println(session.getId() + " disconnected")
     }
 
 }
