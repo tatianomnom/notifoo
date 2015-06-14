@@ -17,7 +17,7 @@ public class MyEndpoint {
     @OnMessage
     public fun onMessage(message: String, session: Session) {
         print(session.getId() + " sent " + message)
-        session.getOpenSessions().forEach { s -> s.getBasicRemote().sendText("Someone with id " + session.getId() + " sent " + message) }
+        session.getOpenSessions().forEach { s -> s.getBasicRemote().sendText("[User ${session.getId()}]: $message") }
     }
 
     @OnClose
