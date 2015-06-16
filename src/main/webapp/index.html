@@ -7,13 +7,18 @@
 </head>
 <body>
 
-<button onclick="WS.connect();">Connect</button>
-<button onclick="WS.disconnect();">Disconnect</button>
+<label>
+    Choose a channel:
+    <input id="newChannelName" type="text"/>
+</label>
+
+<button onclick="WS.connectChannel(document.getElementById('newChannelName').value)">Connect</button>
+<button onclick="WS.disconnect(document.getElementById('newChannelName').value);">Disconnect</button>
 <label>
     Text:
-    <input id="msg" type="text">
+    <input id="msg" type="text"/>
 </label>
-<button onclick="WS.send(document.getElementById('msg').value)">Send</button>
+<button onclick="WS.send(document.getElementById('newChannelName').value, document.getElementById('msg').value)">Send</button>
 
 <div id="log"></div>
 
