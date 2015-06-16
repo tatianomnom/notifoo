@@ -24,6 +24,10 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:0.12.200"
+    compile 'com.fasterxml.jackson.core:jackson-core:2.5.4'
+    compile 'com.fasterxml.jackson.module:jackson-module-kotlin:2.5.3.1'
+    compile 'org.glassfish.jersey.core:jersey-common:2.18'
+    compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.18'
     providedCompile "javax.websocket:javax.websocket-api:1.1"
 }
 
