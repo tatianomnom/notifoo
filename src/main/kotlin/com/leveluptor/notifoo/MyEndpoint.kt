@@ -1,16 +1,15 @@
 package com.leveluptor.notifoo;
 
-import java.util.HashMap
 import java.util.HashSet
+import java.util.concurrent.ConcurrentHashMap
 import javax.websocket.OnClose
 import javax.websocket.OnMessage
 import javax.websocket.OnOpen
 import javax.websocket.Session
 import javax.websocket.server.PathParam
 import javax.websocket.server.ServerEndpoint
-import kotlin.platform.platformStatic
 
-private val subscribers = HashMap<String, Set<Session>>()
+private val subscribers = ConcurrentHashMap<String, Set<Session>>()
 
 @ServerEndpoint(value = "/channel/{channel}")
 public class MyEndpoint {
