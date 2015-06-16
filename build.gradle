@@ -28,6 +28,7 @@ dependencies {
     compile 'com.fasterxml.jackson.module:jackson-module-kotlin:2.5.3.1'
     compile 'org.glassfish.jersey.core:jersey-common:2.18'
     compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.18'
+    compile 'com.google.guava:guava:18.0'
     providedCompile "javax.websocket:javax.websocket-api:1.1"
 }
 
