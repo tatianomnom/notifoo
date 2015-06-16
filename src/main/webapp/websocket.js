@@ -5,6 +5,7 @@ var WS = function () {
     return  {
         disconnect: function (name) {
             if (name in sockets) sockets[name].close();
+            document.getElementById('log').removeChild(document.getElementById(name))
         },
         send: function (name, msg) {
             if (name in sockets) sockets[name].send(msg)
