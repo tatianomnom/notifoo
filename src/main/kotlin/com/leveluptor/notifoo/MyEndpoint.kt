@@ -41,9 +41,10 @@ public class MyEndpoint {
     public fun onClose(@PathParam("channel") channel: String, session: Session) {
         val text = "[$channel] User ${session.getId()} left"
         println(text)
-        subscribers.get(channel).forEach { s -> s.getBasicRemote().sendText(text) }
 
         subscribers.remove(channel, session)
+
+        subscribers.get(channel).forEach { s -> s.getBasicRemote().sendText(text) }
     }
 
 }
