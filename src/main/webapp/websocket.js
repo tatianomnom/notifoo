@@ -17,6 +17,15 @@ var WS = function () {
                 document.getElementById('log').appendChild(entry);
             };
             sockets[name] = socket;
+
+            var channelEntry = document.createElement('button');
+            channelEntry.innerHTML = 'Leave ' + name
+            channelEntry.onclick = function () {
+                WS.disconnect(name)
+                this.parentNode.removeChild(this)
+            }
+
+            document.getElementById('channels').appendChild(channelEntry)
         }
     };
 }();
