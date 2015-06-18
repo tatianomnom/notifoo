@@ -18,14 +18,19 @@ var WS = function () {
             };
             sockets[name] = socket;
 
-            var channelEntry = document.createElement('button');
-            channelEntry.innerHTML = 'Leave ' + name
-            channelEntry.onclick = function () {
-                WS.disconnect(name)
-                this.parentNode.removeChild(this)
-            }
+            var channelEntry = document.createElement('li');
+            var channelLabel = document.createElement('span');
+            var channelButton = document.createElement('button');
+            channelLabel.innerHTML = name;
+            channelButton.innerHTML = 'Leave';
+            channelButton.onclick = function () {
+                WS.disconnect(name);
+                channelEntry.parentNode.removeChild(channelEntry)
+            };
+            channelEntry.appendChild(channelLabel);
+            channelEntry.appendChild(channelButton);
 
-            document.getElementById('channels').appendChild(channelEntry)
+            document.getElementById('channelList').appendChild(channelEntry)
         }
     };
 }();
